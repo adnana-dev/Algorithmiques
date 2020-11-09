@@ -1,0 +1,27 @@
+Procedure inserer(E/S: a0, valeur, prec)
+    m(x) = alloc(2)
+    cm(x) = valeur
+    m(cm(x) +1) := cm(cm(prec))
+    m(cm(prec)) := cm(x)
+fin
+
+Procedure competeListe(E/S: a0, E: N, M)
+    m(cours) := cm(a0)
+    m(prec)  := a0
+    m(compteur) := N
+    Tantque cm(cm(cours)) != NIL ET alors cm(compteur) <= M faire
+        Si cm(cm(cours)) > cm(compteur)
+            inserer(a0, cm(compteur) cm(prec))
+        finSi
+        m(prec) := cm(cours) + 1
+        m(cours) := cm(cm(cours) + 1)
+        m(compteur) := cm(cmpteur) + 1
+    fait
+    Si cm(cm(cours)) = NIL ET cm(compteur) < M alors
+        Pour i allant de cm(compteur) à M faire
+            inserer(a0, i, cm(prec))
+            m(prec) := cm(cours) + 1
+            m(cours) := cm(cm(cours) + 1
+        fait
+    finSi
+fait
