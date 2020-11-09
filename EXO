@@ -1,7 +1,7 @@
 Procedure inserer(E/S: a0, valeur, prec)
     m(x) = alloc(2)
-    cm(x) = valeur
-    m(cm(x) +1) := cm(cm(prec))
+    cm(cm(x)) = valeur
+    m(cm(x) + 1) := cm(cm(prec))
     m(cm(prec)) := cm(x)
 fin
 
