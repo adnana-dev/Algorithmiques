@@ -1,8 +1,10 @@
 Procedure inserer(E/S: a0, valeur, prec)
     m(x) = alloc(2)
-    cm(cm(x)) = valeur
-    m(cm(x) + 1) := cm(cm(prec))
-    m(cm(prec)) := cm(x)
+    Si m(x) != NIL
+        cm(cm(x)) = valeur
+        m(cm(x) + 1) := cm(cm(prec))
+        m(cm(prec)) := cm(x)
+    finSi
 fin
 
 Procedure competeListe(E/S: a0, E: N, M)
