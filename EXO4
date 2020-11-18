@@ -1,0 +1,26 @@
+Procedure Intersection(E/S: a0, a1)
+    m(cour0) := cm(a0)
+    m(cour1) := cm(a1)
+    m(prec)  := a0
+    TantQue cm(cour0) != NIL ET cm(cour1) != NIL faire
+        Si cm(cm(cou0)) < cm(cm(cour1))
+            suppCell(prec)
+        Sinon
+            Si cm(cm(cour0)) == cm(cm(cour1))
+                m(prec)  := cm(cour0) + 1
+                m(cour0) := cm(cm(cour0) + 1)
+            finSi
+            m(cour1) := cm(cm(cour1) + 1)
+        finSi
+    Fait
+    Si cm(cm(cour1)) = NIL ET alors cm(cm(cou0)) != NIL
+        m(cm(prec)) := NIL
+    finSi
+    liberListe(a1)
+Fin
+
+Procedure SuppCell(E/S : prec)
+    m(cour)     := cm(cm(prec))
+    m(cm(prec)) := cm(cm(cour) + 1)
+    liberer(cm(cour))
+Fin
