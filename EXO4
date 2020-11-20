@@ -1,3 +1,42 @@
+/*Cette version utilise une boucle imbriquée*/
+Procedure Intersection(E/S: a0, a1)
+    m(cour0) := cm(a0)
+    m(cour1) := cm(a1)
+    m(prec)  := a0
+    TantQue cm(cour0) != NIL ET cm(cour1) != NIL faire
+        TanQue cm(cour0) != NIL ET cm(cm(cour0)) < cm(cm(cour1))
+            SuppCell(cm(prec))
+            m(cour0) := cm(cm(pec))
+        fait
+        Si (cm(cour0)) != NIL 
+            Si cm(cm(cour0)) = cm(cm(cour1))
+                m(prec)  := cm(cour0) = 1
+                m(cour0) := cm(cm(prec))
+            finSi
+            m(cour1) := cm(cm(cour1) + 1)
+        finSi
+    fait
+    libererListe(cm(prec)) //Libere les cases restantes de la liste 1
+    lbererListe(a1)        //Liberer la liste 2
+Fin
+
+Procedure SuppCell(E/S : prec)
+    m(cour)     := cm(cm(prec))
+    m(cm(prec)) := cm(cm(cour) + 1)
+    liberer(cm(cour))
+Fin
+
+Procedure libererListe(E/S: a0)
+    m(cours) := cm(a0)
+    Tantque cm(cours) != NIL faire
+        suppCell(cm(cours))
+    fait
+fin
+
+
+
+
+/*Cette version n'utilise pas de boucle imbriquée*/
 Procedure Intersection(E/S: a0, a1)
     m(cour0) := cm(a0)
     m(cour1) := cm(a1)
@@ -16,11 +55,6 @@ Procedure Intersection(E/S: a0, a1)
     Si cm(cm(cour1)) = NIL ET alors cm(cm(cou0)) != NIL
         m(cm(prec)) := NIL
     finSi
+    libererListe(cm(prec))
     liberListe(a1)
-Fin
-
-Procedure SuppCell(E/S : prec)
-    m(cour)     := cm(cm(prec))
-    m(cm(prec)) := cm(cm(cour) + 1)
-    liberer(cm(cour))
 Fin
