@@ -1,0 +1,21 @@
+Procedure separer(E/S : a0)
+    /*On suppose que la liste a plus de deux éléments. Puisque de toute façon on a rien à faire dans le cas contraire*/$
+    /*fin : variable qui utilisée pour stocker la fin de la liste contenant les nombres positifs*/
+    /*a1  : pointeur de début de la liste des nombre négatifs*/
+    m(prec)  := cm(a0) + 1
+    m(cours) := cm(cm(prec))
+    Tantque cm(cours) != NIL
+        Si cm(cm(cours)) >= 0  //On fait remonter les positofs en debut de liste
+            ajouteDebut(cm(cm(cours)), a0)
+            m(cours)  := cm(cm(cours) + 1)
+            suppCell(cm(prec))
+            m(a1)     := cm(cours)  //Si on ne rentre plus dans le Si, on a stocké le debut de la liste des nombres négatifs
+            m(fin)    := cm(prec)   //Si on ne rentre plus dans le Si, on a stocké le debut de la liste des nombres positifs
+        finSi
+        m(prec)   := cm(cours) + 1
+        m(cours)  := cm(cm(cours) + 1)
+    finTantque
+    m(fin) := NIL
+fait
+            
+            
