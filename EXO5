@@ -17,5 +17,23 @@ Procedure separer(E/S : a0)
     finTantque
     m(fin) := NIL
 fait
-            
+
+
+
+Procedure ajouteDebut(E/S: a0, E: valeur)
+        m(cellule)         := alloc(2)
+        cm(cm(cellule))    := valeur
+        m(cm(cellule) + 1) := cm(a0)
+        m(a0)              := cm(cellule)
+fait
+
+
+Procedure suppCell(E/S: a0, E:prec)
+        Si cm(cm(prec)) != NIL
+            m(cours)        := cm(cm(prec))
+            m(cm(prec))     := cm(cm(cours) + 1)
+            liberer(cm(cours))
+        finSi
+fait
+        
             
