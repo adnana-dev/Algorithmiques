@@ -1,0 +1,34 @@
+Fonction Recherche(E/S:a0, E:id)
+    m(cours) := cm(a0 +1)
+    TantQue cm(cours) != k ET cm(cm(cours) != id faire
+        m(cours) := cm(cm(cours) + 1)
+    fait
+    Renvoyer cm(cours)
+Fin
+
+
+Procedure Supprime(E/S:a0, E:prec)
+    Si cm(prec) = a0
+        m(a0 + 1)       := cm(cm(a0 + 1) + 1)
+    Sinon
+        m(cm(prec) + 1) := cm(cm(cm(prec) + 1) +1)
+    FinSi
+Fin
+
+
+Procedure AMSTRAMGRAM(E/S: R)
+    Lire(id)
+    Lire(k)
+    m(cours) := Recherche(R, id)
+    Tantque cm(R + 1) != R  //Tant que l'anneau n'est pas vide
+        Pour m(i) de 1 à k-1 faire
+            Si cm(cm(cours) + 1) = R     //Si le suivant est la cellule fictive, on avance de deux cellules
+                m(cours) := cm(cm(cm(cours) + 1) + 1)
+            Sinon
+                m(cours) := cm(cm(cours) + 1)
+            FinSi
+        Fait
+        Supprimer(R, cm(cours))
+        m(cours) := cm(cm(cours) + 1)
+    Fait
+Fin    
