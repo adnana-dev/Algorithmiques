@@ -1,0 +1,21 @@
+Procedure Suppression(E/S : a0  E: cours)
+    m(cm(cm(cours) + 3) + 2) := cm(cm(cours) + 2)
+    m(cm(cm(cours) + 2) + 3) := cm(cm(cours) + 3)
+    Liberer(cm(cours))
+Fin
+
+
+Procedure ReductionPolynomes(E/S; a0)
+    m(cours1)     := cm(a0 + 2)
+    TantQue cm(cours1) != a0
+        m(cours2) := cm(cm(cours1) + 3)
+        TantQue cm(cours2) != a0
+            Si cm(cm(cours1)) = cm(cm(cours2)) 
+                m(cm(cours1) + 1) := cm(cm(cours1) + 1) + cm(cm(cours2) + 1)
+                Suppression(cm(cours2))
+            FinSi
+            m(cours2) := cm(cm(cours2) + 3)
+        Fait
+        m(cours1)     := cm(cm(cours1) + 3)
+    Fait
+Fin
