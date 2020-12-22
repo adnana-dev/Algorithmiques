@@ -1,0 +1,42 @@
+Procedure CompareChaine(E/S : a, b)
+    m(res) := 0
+    m(cmp) := 0
+    TantQue ( cm(a + cm(cmp)) != NIL ET cm(b + cm(cmp)) != NIL ) ET alors ( cm(a + cm(cmp)) = cm(b + cm(cmp)) ) faire
+        m(cmp) := cm(cmp) + 1
+    fait
+    Si cm(a + cm(cmp)) != NIL ET cm(b + cm(cmp)) != NIL
+        Si cm(a + cm(cmp)) > cm(b + cm(cmp))
+            m(res) := 1
+        Sinon
+            m(res) := -1
+        FinSi
+    Sinon
+        Si cm(a + cm(cmp)) = NIL
+            m(res) := 1
+        Sinon
+            m(res) := -1
+        FinSi
+    FinSi
+    Renvoyer cm(res)
+Fin
+
+
+Procedure DecaleGauche(E/S: debut, fin)
+    Liberer(cm(debut)) // Je libère les tableaux contenant les chaines de caractères qui vont ètre supprimées
+    Pour m(i) allant de cm(debut) à cm(fin)
+        m(cm(i)) := cm(cm(i) + 1)
+    FinPour
+Fin
+
+
+Procedure SupprimeChaine(E/S : a0)
+    m(cours) := cm(a0)
+    m(cmp)   := 0
+    TantQue cm(cmp) < cm(a0 + 1)
+        Si CompareChaine(cm(cm(cours)), b0) = 0
+            DecaleGauche( cm(cours), cm(a0) + cm(a0 + cm(a0 + 1)) )
+        Sinon
+            m(i) := cm(i) + 1
+        FinSi
+    Fait
+Fait
