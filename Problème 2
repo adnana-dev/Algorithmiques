@@ -1,3 +1,12 @@
+Procedure Supprime_Chaine_Identiques(E/S : a0)
+    m(adval)   := cm(a0)
+    m(trouver) := dicho(a0, cm(a0) + cm(a0 + 1) - 1, b0, adval)
+    TantQue cm(trouver) := Vrai
+        DecaleGauche( cm(adval), cm(a0) + cm(a0 + 1) - 1 )
+        m(trouver) := dicho(a0, cm(a0) + cm(a0 + 1) - 1, b0, adval)
+    Fait
+Fait
+
 Procedure CompareChaine(E/S : a, b)
     m(res) := 0
     m(cmp) := 0
@@ -20,23 +29,29 @@ Procedure CompareChaine(E/S : a, b)
     Renvoyer cm(res)
 Fin
 
-
-Procedure DecaleGauche(E/S: debut, fin)
+Procedure DecaleGauche(E/S: a0, debut, fin)
     Liberer(cm(debut)) // Je libère les tableaux contenant les chaines de caractères qui vont ètre supprimées
     Pour m(i) allant de cm(debut) à cm(fin)
         m(cm(i)) := cm(cm(i) + 1)
     FinPour
+    m(a0 + 1)    := cm(a0 + 1) - 1 //La taille de la lco diminue de 1 à chaque décallage 
 Fin
 
-
-Procedure SupprimeChaine(E/S : a0)
-    m(cours) := cm(a0)
-    m(cmp)   := 0
-    TantQue cm(cmp) < cm(a0 + 1)
-        Si CompareChaine(cm(cm(cours)), b0) = 0
-            DecaleGauche( cm(cours), cm(a0) + cm(a0 + cm(a0 + 1)) )
+Fonction dicho(E/S: debut, fin, advaleur, adarret)
+    m(ai)      := debut
+    m(bi)      := fin
+    m(trouver) := Faux
+    Tantque cm(ai) != cm(bi) faire
+        m(mil) := E[(cm(ai) + cm(bi))/2]
+        Si compareChaine(cm(mil), cm(advaleur)) >= 0
+            m(bi) := cm(mil)
         Sinon
-            m(i) := cm(i) + 1
-        FinSi
+            m(ai) := cm(mil) + 1
+        Fin
     Fait
-Fait
+    si compareChaine(cm(ai), cm(b0)) = 0
+        m(trouver) := Vrai
+        m(adarret) := cm(ai)
+    FinSi
+    renvoyer cm(trouver)
+Fin
