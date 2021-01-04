@@ -14,9 +14,13 @@ Procedure inserer(E/S : a0, prec E : v)
     m(cm(prec))      := cm(cours)
 Fin
 
-Procedure insertionListe(E/S : a2, a1 E : v)
+Procedure insertionListe(E/S: a2, a1  E: v)
     m(prec)  := RecherchePrec(a1, v)
     m(prec)  := cm(cm(prec)) + 1
     m(cours) := cm(a2)
-    Tant que cm(cours) != NIL ET cm(prec) != NIL faire
-        inserer(a1, prec, cm(cm(cours)))
+    Tantque cm(cours) != NIL faire
+        m(cours) := cm(cm(cours) + 1)
+    fait
+    m(cours)    := cm(cm(prec))
+    m(cm(prec)) := cm(a2)
+fin
