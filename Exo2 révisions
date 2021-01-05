@@ -13,5 +13,6 @@ Procedure SuppValeur(E/S: a0, E: valeur)
         m(tmp) := cm(cours)
         m(cm(cm(cours) + 2) + 1) := cm(cm(cours) + 1)
         m(cm(cm(cours) + 1) + 2) := cm(cm(cours) + 2)
+        Liberer(cm(tmp))
      FinSi
 Fin
