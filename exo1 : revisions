@@ -1,7 +1,7 @@
 Procedure RecherchePrec(E/S : a0 E : v)
     m(cours) := cm(a0)
     m(prec)  := a0
-    Tant Que cm(cours) != NIL faire
+    Tant Que cm(cours) != NIL Et cm(cm(cours)) != v faire
         m(prec)  := cm(cours) + 1
         m(cours) := cm(cm(cours) + 1)
     fait
