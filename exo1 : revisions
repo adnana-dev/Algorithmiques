@@ -16,6 +16,6 @@ Procedure insertionListe(E/S: a2, a1  E: v)
     Tantque cm(cours) != NIL faire
         m(cours) := cm(cm(cours) + 1)
     fait
-    m(cours)    := cm(cm(prec))
-    m(cm(prec)) := cm(a2)
+    m(cm(cours)+1)   := cm(cm(prec))
+    m(cm(prec))      := cm(a2)
 fin
