@@ -13,7 +13,7 @@ Procedure insertionListe(E/S: a2, a1  E: v)
     m(prec)  := RecherchePrec(a1, v)
     m(prec)  := cm(cm(prec)) + 1
     m(cours) := cm(a2)
-    Tantque cm(cours) != NIL faire
+    Tantque cm(cm(cours) + 1) != NIL faire
         m(cours) := cm(cm(cours) + 1)
     fait
     m(cm(cours)+1)   := cm(cm(prec))
